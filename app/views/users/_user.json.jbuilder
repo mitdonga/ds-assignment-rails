@@ -1,0 +1,1 @@
+json.extract! user, :id, :name, :email, :referral_code, :created_at

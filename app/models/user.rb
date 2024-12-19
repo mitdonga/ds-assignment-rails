@@ -5,7 +5,7 @@ class User < ApplicationRecord
          :jwt_authenticatable, jwt_revocation_strategy: self
 
   belongs_to :referrer, class_name: "User", optional: true
-  has_many :referees, class_name: "User", foreign_key: "referrer_id"
+  has_many :members, class_name: "User", foreign_key: "referrer_id"
 
   validates :name, :email, presence: true
   validates :email, uniqueness: true

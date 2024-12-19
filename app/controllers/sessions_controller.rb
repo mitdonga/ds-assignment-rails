@@ -7,12 +7,8 @@ class SessionsController < Devise::SessionsController
     if user && user.valid_password?(params[:password])
       sign_in(user)
 
-      render json: {
-        status: {
-          message: "Logged in successfully",
-          user: user
-        }
-      }, status: :ok
+      @user = user
+      render "users/show", locals: { message: "Logged in successfully" }, status: :ok
     else
       render json: {
         message: "Invalid email or password"
