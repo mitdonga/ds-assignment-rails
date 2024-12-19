@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.2].define(version: 2024_12_18_144624) do
+ActiveRecord::Schema[7.2].define(version: 2024_12_19_043458) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -25,7 +25,9 @@ ActiveRecord::Schema[7.2].define(version: 2024_12_18_144624) do
     t.datetime "updated_at", null: false
     t.string "referral_code", default: -> { "substr(md5((random())::text), 0, 6)" }
     t.bigint "referrer_id"
+    t.string "jti"
     t.index ["email"], name: "index_users_on_email", unique: true
+    t.index ["jti"], name: "index_users_on_jti"
     t.index ["referrer_id"], name: "index_users_on_referrer_id"
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
