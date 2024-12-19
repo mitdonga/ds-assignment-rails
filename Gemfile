@@ -40,6 +40,10 @@ group :development, :test do
   gem "rubocop-rails-omakase", require: false
 end
 
+group :development do
+  gem 'letter_opener'
+end
+
 # Authentication
 gem 'devise'
 gem 'devise-jwt'
