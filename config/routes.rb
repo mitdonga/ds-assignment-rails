@@ -11,6 +11,8 @@ Rails.application.routes.draw do
       registrations: "registrations"
     }
 
+  get "me", to: "users#show"
+
   resources :members, only: [ :index ] do
     collection do
       post "invite", to: "members#invite"
